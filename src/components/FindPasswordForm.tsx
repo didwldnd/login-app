@@ -23,7 +23,7 @@ function FindPasswordForm() {
         }
 
         try {
-            await axios.post('http://13.124.190.188:8081/api/user/find-password', form)
+            await axios.post('/api/user/find-password', form)
             setMessage('임시 비밀번호가 이메일로 전송되었습니다.')
         } catch (err) {
             console.error('비밀번호 찾기 실패:', err)

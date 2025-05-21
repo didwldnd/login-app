@@ -57,7 +57,7 @@ function RegisterForm({ onClose }: RegisterFormProps) {
     if (!validate()) return
 
     try {
-      const res = await axios.post('http://13.124.190.188:8081/api/user/register', form)
+      const res = await axios.post('/api/user/register', form)
       console.log(res.data)
       alert('회원가입 성공!')
       onClose()

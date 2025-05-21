@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import About from './pages/About'
 import LoginSection from './components/LoginSection'
@@ -6,35 +6,10 @@ import RegisterForm from './components/RegisterForm'
 import FindPasswordForm from './components/FindPasswordForm'
 
 function App() {
-  // 임시 테스트용 회원가입 요청 (초기 렌더링 시 1회 실행)
-  useEffect(() => {
-    fetch('http://13.124.190.188:8081/api/user/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: '홍길동',
-        username: 'testuser01',
-        password: 'Test@1234',
-        email: 'test@example.com',
-        nickname: 'tester',
-        phoneNumber: '01012345678',
-        account: '110123456789',
-        accountHolder: '홍길동',
-        bank: 'KB',
-        role: 'USER'
-      })
-    })
-      .then(res => res.json())
-      .then(data => console.log('백엔드 응답:', data))
-      .catch(err => console.error('에러:', err))
-  }, [])
-
-  // 상태 관리
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showRegister, setShowRegister] = useState(false)
+  // const [userName, setUserName] = useState<string | null>(null) // ✅ 로그인 사용자 이름 저장
 
   const handleLogin = () => {
     console.log('로그인 요청:', { username, password })
@@ -63,15 +38,9 @@ function App() {
                   handlePasswordChange={(e) => setPassword(e.target.value)}
                   handleLogin={handleLogin}
                   handleOpenRegister={() => setShowRegister(true)}
+                  // onLoginSuccess={(name) => setUserName(name)} // ✅ 이름 전달 받음
                 />
               )}
-              {/* <div style={{ marginTop: '10px' }}>
-                {!showRegister && (
-                  <Link to="/find-password">
-                    <button>비밀번호 찾기</button>
-                  </Link>
-                )}
-              </div> */}
             </div>
           }
         />
