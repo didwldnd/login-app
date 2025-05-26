@@ -136,6 +136,29 @@
   background-color: #e2e8f0;
 }
 
+/* 비밀번호 찾기 링크 스타일 */
+.login-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.find-password-link {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.find-password-link:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
 /* 반응형 디자인 */
 @media (max-width: 500px) {
   .login-section {

@@ -139,3 +139,32 @@
   background-position: right 12px center;
   padding-right: 40px;
 }
+
+/* 비밀번호 실시간 유효성 검사 메시지 */
+.password-rules {
+  font-size: 13px;
+  margin-top: 4px;
+  line-height: 1.5;
+  padding-left: 4px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.password-rules .valid {
+  color: #16a34a; /* 초록색 */
+}
+
+.password-rules .invalid {
+  color: #dc2626; /* 빨간색 */
+}
+
+/* 페이드인 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

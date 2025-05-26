@@ -1,8 +1,8 @@
 function About() {
   return (
     <div>
-      <h2>About 페이지</h2>
-      <p>꺼져</p>
+      <h2>SubTitle</h2>
+      <p>ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ</p>
     </div>
   )
 }

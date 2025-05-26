@@ -1,5 +1,8 @@
+"use client"
+
 import type { ChangeEvent } from "react"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./LoginSection.css"
 
@@ -25,6 +28,7 @@ function LoginSection({
 }: LoginSectionProps) {
   const [error, setError] = useState("")
   const [showPassword, setShowPassword] = useState(false)
+  const navigate = useNavigate()
 
   const handleClick = async () => {
     if (username.trim() === "" || password.trim() === "") {
@@ -46,6 +50,10 @@ function LoginSection({
       console.error("로그인 실패:", err)
       setError("아이디 또는 비밀번호가 올바르지 않습니다.")
     }
+  }
+
+  const handleFindPassword = () => {
+    navigate("/find-password")
   }
 
   return (
@@ -81,10 +89,14 @@ function LoginSection({
           회원가입
         </button>
       </div>
+
+      <div className="login-links">
+        <button className="find-password-link" onClick={handleFindPassword}>
+          비밀번호 찾기
+        </button>
+      </div>
     </div>
   )
 }
 
 export default LoginSection
-
-
